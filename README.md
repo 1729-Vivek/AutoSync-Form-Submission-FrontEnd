@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# AutoSync Form Submission
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AutoSync Form Submission is a MERN stack application that allows users to fill out a form and handles offline data storage. When the user submits the form while offline, the data is saved locally and automatically sent to the backend when the internet connection is restored.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Form submission with name and email fields.
+- Offline data storage using local storage.
+- Automatic data synchronization with the backend when the internet connection is restored.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Other**: Local Storage, Fetch API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm installed
+- MongoDB installed and running
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    git clone https://github.com/yourusername/autosync-form-submission.git
+    cd autosync-form-submission
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies for both frontend and backend:
 
-### `npm run eject`
+    ```bash
+    cd frontend
+    npm install
+    cd ../backend
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create a `.env` file in the `backend` directory with your MongoDB URI:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```env
+    MONGODB_URI=your_mongodb_uri
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Running the Application
 
-## Learn More
+1. Start the backend server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    cd backend
+    node server.js
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Start the React application:
 
-### Code Splitting
+    ```bash
+    cd frontend
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Testing Offline Feature
 
-### Analyzing the Bundle Size
+1. Open your React application in a web browser.
+2. Open Developer Tools (usually by pressing `F12` or right-clicking on the page and selecting "Inspect").
+3. Go to the "Network" tab.
+4. In the "Network" tab, look for an option to simulate offline mode. This is typically found in the online/offline dropdown menu. Select "Offline" to simulate an offline state.
+   - In Chrome, there's a dropdown labeled "Online" which you can switch to "Offline".
+   - In Firefox, you can do this by clicking the settings icon (three dots) in the Network tab and selecting "Offline".
+5. Fill out the form and submit it. An alert should appear indicating that the data is saved locally.
+6. Switch the browser back to "Online" mode using the same dropdown in the Network tab. The application should automatically detect that it is online and should attempt to send the saved data to the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Project Structure
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```plaintext
+autosync-form-submission/
+├── backend/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── FormComponent.js
+│   │   └── index.js
+│   ├── package.json
+│   └── .env
+└── README.md
